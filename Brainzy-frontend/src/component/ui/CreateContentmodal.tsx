@@ -1,8 +1,10 @@
 import {useState} from "react";
 import { CrossIcon } from "../../icons/CrossIcon";
+import { Input } from "./Input";
+import { Button } from "./Button";
 
 
-export function CreateContentmodal({open}){
+export function CreateContentmodal({open,onClose}){
 
 
     return<div>
@@ -10,8 +12,18 @@ export function CreateContentmodal({open}){
             <div className="flex flex-col justify-center">
                 <span className="bg-white opacity-100 p-4 rounded-sm">
                     <div className="flex justify-end">
-                        <CrossIcon  />
+                        <div onClick={onClose}      className="cursor-pointer">
+                            <CrossIcon  />
+                        </div>
+                        
                     </div>
+                    <div>
+                        <Input placeholder={"Title"} />
+                        <Input placeholder={"Link"}/>
+                    </div>
+                    <div className="flex justify-center"><Button variant = "primary" text="Submit" size="sm"/>
+                    </div>
+                    
                 </span>
             </div>
         </div>}
