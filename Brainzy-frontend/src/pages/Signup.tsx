@@ -3,11 +3,14 @@ import { Button } from "../component/ui/Button";
 import { Input } from "../component/ui/Input";
 import { useRef } from "react";
 import { BACKEND_URL } from "../Config";
+import { useNavigate } from "react-router-dom";
+
 
 export function Signup() {
 
     const usernameRef = useRef<HTMLInputElement>();
     const passwordRef = useRef<HTMLInputElement>();
+    const navigate = useNavigate();
 
     async function signup() {
         const username = usernameRef.current?.value;
@@ -17,6 +20,7 @@ export function Signup() {
             password: password
         }
         );
+        navigate("/signin");
 }
 
 
